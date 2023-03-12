@@ -1,2 +1,6 @@
+http://zippedalo.github.io/about/index.html
+http://zippedalo.github.io/link/index.html
+http://zippedalo.github.io/categories/index.html
+http://zippedalo.github.io/tags/index.html
 http://zippedalo.github.io/2023/03/11/404/
 http://zippedalo.github.io/
