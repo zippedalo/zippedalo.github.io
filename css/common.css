@@ -1,0 +1,368 @@
+@import url("/load.php?mode=articles&only=styles&articles=u:dev:MediaWiki:ModernPolls.css|u:dev:MediaWiki:FandomizedTabs/tabbers.css");
+
+/* ModernPolls modifications */
+div.ajax-poll {
+    padding: 1em 1em 0 !important;
+}
+.ajax-poll form div:last-child {
+    font-size: 1em !important;
+    margin-bottom: 10px !important;
+    padding-bottom: 2px !important;
+}
+.pollAnswerName {
+    margin-left: -5px !important;
+}
+.pollAnswerVotes {
+    margin-left: 0 !important;
+}
+.pollAnswerVotes span {
+    font-size: .8em !important;
+}
+.pollAnswerVotes div {
+    background: #BA0000 !important;
+}
+
+/* FandomizedTabs modifications */
+#mw-content-text .tabber ul.tabbernav li.tabberactive a {
+    background: green !important;
+    color: white !important;
+    border: 0 !important;
+    text-shadow: 1px 1px 0 #333;
+}
+#mw-content-text .tabber ul.tabbernav {
+    border-bottom: 4px solid green;
+}
+
+/* Mark redirects in Special:Allpages and Special:Watchlist */
+.allpagesredirect {
+   font-style: italic;
+}
+.allpagesredirect:after {
+   color: #808080; content: " (redirect)"
+}
+.watchlistredir {
+   font-style: italic;
+}
+
+/* Recent changes byte indicators */
+.mw-plusminus-pos {
+   color: #006500;
+}
+.mw-plusminus-neg {
+   color: #8B0000;
+}
+
+/* Quick fix to show Edit buttons */
+.mw-newarticletext {
+    display: block !important;
+}
+
+/* Center element */
+.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Gallery buttons */
+.gallery-button {
+    text-align: center;
+}
+
+/* Reference list formatting */
+.references-small ol li {
+    font-size: 90%;
+    line-height: 18px;
+    text-align: justify;
+    padding: 3px 0;
+}
+.references > li:target {
+    background-color: #DCD9A3;
+}
+.reference:target {
+    background-color: #FFF17D;
+}
+.refpopups-box {
+    font-size: 90%;
+    line-height: 14px;
+}
+
+/* Bulletlist formatting */
+.WikiaArticle ul {
+    list-style-type: disc;
+}
+.WikiaArticle li {
+    line-height: 20px;
+}
+.WikiaBlogListing ul,
+.AdminDashboard .admin-dashboard-content .control-section .controls .control {
+    list-style: none outside none;
+}
+
+/* Link formatting */
+.WikiaArticle a.external::after {
+    display: none;
+}
+
+/* Thumbnail formatting */
+.WikiaArticle .article-thumb .attribution { 
+    display: none;
+}
+
+/* TOC formatting */
+.WikiaArticle .toc {
+    background-color: #FAF0D1;
+    border: 1px solid #C7BC9C;
+    font-size: 90%;
+}
+.WikiaArticle .toc ol li {
+    line-height: 16px;
+}
+#toctitle {
+    padding-top: 3px;
+}
+
+/* Icon formatting
+ * Obtained from Avatar Wiki @ w:c:avatar:MediaWiki:Common.css
+ */
+#icons {
+    position: absolute;
+    z-index: 100;
+    right: 130px;
+    top: 15px !important;
+    float: right;
+}
+
+/* Gallerybox formatting */
+li.gallerybox {
+    border: none !important;
+}
+li.gallerybox div.thumb {
+    background-color: #FAF0D1;
+    border: 1px solid #C7BC9C;
+}
+.gallerytext {
+    font-size: 90%;
+    line-height: 16px !important;
+}
+.gallery {
+    margin: 2px !important;
+}
+.WikiaArticle div.gallerybox div.thumb, .WikiaArticle li.gallerybox div.thumb {
+    background: none repeat scroll 0 0 rgb(245, 241, 213);
+    border: 1px solid rgb(211, 195, 146);
+}
+
+/* Article formatting */
+.WikiaPage .WikiaArticle {
+    font-size: 14px;
+    line-height: 21px;
+}
+.WikiaArticle p {
+    margin: 0.5em 0 1em;
+}
+
+/* Article header formatting */
+.WikiaPageHeader h1,
+.WikiaUserPagesHeader h1,
+.WikiaBlogListing h1,
+.WikiaArticle h2,
+.RelatedPagesModule h2 {
+    font-family: Georgia,serif;
+}
+.WikiaRail .module h1,
+.WikiaRail #RIGHT_SKYSCRAPER h1,
+.WikiaRail #RIGHT_SKYSCRAPER h2,
+.WikiaRail #RIGHT_SKYSCRAPER h1,
+.WikiaRail #RIGHT_SKYSCRAPER h2,
+.WikiaRail .module h2,
+.WikiaRail #RIGHT_SKYSCRAPER h2,
+.WikiaRail #RIGHT_SKYSCRAPER h2,
+.WikiaFooter .header-container h1,
+.ChatModule h1.chat-headline span,
+.mw-content-ltr .ForumActivityModule h1,
+.WikiaBlogListingBox h3 {
+    font-family: Georgia,serif;
+    font-variant: small-caps;
+    font-size: 22px;
+    font-weight: normal;
+}
+.WikiaArticle h3 {
+    font-weight: bold;
+    font-size: 1.37em;
+    line-height: 1.6;
+}
+.WikiaArticle h4 {
+    font-size: 1.27em;
+    font-weight: bold;
+}
+ 
+/* Gradient classes */
+.tangradient {
+    background-image: -moz-linear-gradient(50% 0%, #F9ECC3 50%, #F7E5AC 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F9ECC3), color-stop(100%,#F7E5AC));
+    background-image: -webkit-linear-gradient(top, #F9ECC3 0%, #F7E5AC 100%); 
+    background-image: -o-linear-gradient(top, #F9ECC3 0%, #F7E5AC 100%);
+    background-image: -ms-linear-gradient(top, #F9ECC3 0%, #F7E5AC 100%);
+}
+.redgradient {
+    background-image: -moz-linear-gradient(top, #BC1700 20%, #891100 80%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#BC1700), color-stop(100%,#891100));
+    background-image: -webkit-linear-gradient(top, #BC1700 0%, #891100 100%);
+    background-image: -o-linear-gradient(top, #BC1700 0%, #891100 100%);
+    background-image: -ms-linear-gradient(top, #BC1700 0%, #891100 100%);
+}
+.redgradient-rev {
+    background-image: -moz-linear-gradient(top, #891100 20%, #BC1700 80%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#891100), color-stop(100%,#BC1700));
+    background-image: -webkit-linear-gradient(top, #891100 0%, #BC1700 100%);
+    background-image: -o-linear-gradient(top, #891100 0%, #BC1700 100%);
+    background-image: -ms-linear-gradient(top, #891100 0%, #BC1700 100%);
+}
+.redgradient2 {
+    background-image: -moz-linear-gradient(top, #CC0000 20%, #A30000 80%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#CC0000), color-stop(100%,#A30000));
+    background-image: -webkit-linear-gradient(top, #CC0000 0%, #A30000 100%);
+    background-image: -o-linear-gradient(top, #CC0000 0%, #A30000 100%);
+    background-image: -ms-linear-gradient(top, #CC0000 0%, #A30000 100%);
+}
+.goldgradient {
+    background-image: -moz-linear-gradient(top, #FBEA99 20%, #FCE368 80%); 
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FBEA99), color-stop(100%, #FCE368));
+    background-image: -webkit-linear-gradient(top, #FBEA99 0%, #FCE368 100%);
+    background-image: -o-linear-gradient(top, #FBEA99 0%, #FCE368 100%);
+    background-image: -ms-linear-gradient(top, #FBEA99 0%, #FCE368 100%);
+}
+.greengradient {
+    background-image: -moz-linear-gradient(top, #197519 20%, #005C00 80%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#197519), color-stop(100%, #005C00));
+    background-image: -webkit-linear-gradient(top, #197519 0%, #005C00 100%);
+    background-image: -o-linear-gradient(top, #197519 0%, #005C00 100%);
+    background-image: -ms-linear-gradient(top, #197519 0%, #005C00 100%);
+}
+.greengradient-rev {
+    background-image: -moz-linear-gradient(top, #005C00 20%, #197519 80%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#005C00), color-stop(100%, #197519));
+    background-image: -webkit-linear-gradient(top, #005C00 0%, #197519 100%);
+    background-image: -o-linear-gradient(top, #005C00 0%, #197519 100%);
+    background-image: -ms-linear-gradient(top, #005C00 0%, #197519 100%);
+}
+.lightgreengradient {
+    background-image: -moz-linear-gradient(top, #359F65 20%, #2A7F51 80%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#359F65), color-stop(100%, #2A7F51));
+    background-image: -webkit-linear-gradient(top, #359F65 0%, #2A7F51 100%);
+    background-image: -o-linear-gradient(top, #359F65 0%, #2A7F51 100%);
+    background-image: -ms-linear-gradient(top, #359F65 0%, #2A7F51 100%);
+}
+.orangegradient {
+    background-image: -moz-linear-gradient(top, #FF6600 20%, #E65C00 80%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FF6600), color-stop(100%, #E65C00));
+    background-image: -webkit-linear-gradient(top, #FF6600 0%, #E65C00 100%);
+    background-image: -o-linear-gradient(top, #FF6600 0%, #E65C00 100%);
+    background-image: -ms-linear-gradient(top, #FF6600 0%, #E65C00 100%);
+}
+.browngradient {
+    background-image: -moz-linear-gradient(top, #754719 20%, #5C2E00 80%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#754719), color-stop(100%, #5C2E00));
+    background-image: -webkit-linear-gradient(top, #754719 0%, #5C2E00 100%);
+    background-image: -o-linear-gradient(top, #754719 0%, #5C2E00 100%);
+    background-image: -ms-linear-gradient(top, #754719 0%, #5C2E00 100%);
+}
+.purplegradient {
+    background-image: -moz-linear-gradient(top, #8233AA 20%, #630095 80%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8233AA), color-stop(100%, #630095));
+    background-image: -webkit-linear-gradient(top, #8233AA 0%, #630095 100%);
+    background-image: -o-linear-gradient(top, #8233AA 0%, #630095 100%);
+    background-image: -ms-linear-gradient(top, #8233AA 0%, #630095 100%);
+}
+
+/* Fonts */
+@font-face {
+    font-family: GangofThree;
+    src: url(https://vignette.wikia.nocookie.net/kungfupanda/images/e/e7/Gang_of_Three.ttf) format( 'truetype' );
+}
+
+/* === Babel === */
+div.babelbox {
+   float: right;
+   margin-left: 1em;
+   margin-bottom: 0.5em;
+   width: 246px;
+   border: 1px solid #99B3FF;
+   padding: 2px 0 2px 0;
+}
+.lang-blockN, .lang-block0, .lang-block1, .lang-block2, .lang-block3 {
+   margin: 2px 4px 2px 4px; /* t, l, b, r */
+   width:238px;
+   border-collapse: collapse;
+}
+td.lang-codeN, td.lang-code0, td.lang-code1, td.lang-code2, td.lang-code3 {
+   text-align:center;
+   font-size:14pt;
+   width:45px;
+   height:45px;
+}
+td.lang-descriptionN, td.lang-description0, td.lang-description1,
+td.lang-description2, td.lang-description3 {
+   font-size:8pt;
+   padding:4pt;
+   line-height:1.25em;
+}
+.lang-block0 {
+   border:1px solid #FFB3B3;
+}
+td.lang-code0 {
+   background-color: #FFB3B3;
+   color: black;
+}
+td.lang-description0 {
+   background-color: #FFE0E8;
+   color: black;
+}
+.lang-block1,  .lang-block2, .lang-block3  {
+   border:1px solid #99B3FF;
+}
+td.lang-code1, td.lang-code2, td.lang-code3 {
+   background-color: #99B3FF;
+   color: black;
+}
+td.lang-description1,  td.lang-description2, td.lang-description3 {
+   background-color: #E0E8FF;
+   color: black;
+}
+.lang-blockN {
+   border:1px solid #6EF7A7;
+}
+td.lang-codeN {
+   background-color: #6EF7A7;
+   color: black;
+}
+td.lang-descriptionN {
+   background-color: #C5FCDC;
+   color: black;
+}
+
+/* Main page slider elements 
+ * Special thanks to the Avatar Wiki
+ */
+.portal_section {margin:0 0 10px 0; background:white; -moz-border-radius:8px; -webkit-border-radius:8px; -khtml-border-radius:8px; -icab-border-radius:8px; -o-border-radius:8px; border-radius:10px;}
+.portal_body {padding:0 10px;}
+.theme-fandomdesktop-light #portal_slider {margin:0 0 15px; padding:0; position:relative; height:400px; background-color:var(--theme-page-background-color); -webkit-background-size: 100% 100%; background-size: 100% 100%; background-position:center; background-image:url(https://vignette.wikia.nocookie.net/kungfupanda/images/5/56/Slider-bg.jpg);}
+.theme-fandomdesktop-dark #portal_slider {margin:0 0 15px; padding:0; position:relative; height:400px; background:transparent; -webkit-background-size: 100% 100%; background-size: 100% 100%;}
+#portal_slider > .portal_body {padding:0}
+#portal_content {font-size:0.9em; line-height:1.7em}
+#portal_content .portal_body > table {height:350px}
+#portal_content ul ul {margin-left: 1em}
+.portal_sliderlink_1:hover, .portal_sliderlink_2:hover, .portal_sliderlink_3:hover, .portal_sliderlink_4:hover, .portal_sliderlink_5:hover, .portal_sliderlink_6:hover, .portal_sliderlink_7:hover, .portal_sliderlink_8:hover, .portal_sliderlink_9:hover, .portal_sliderlink_10:hover, .portal_sliderlink_11:hover, .portal_sliderlink_12:hover, .portal_sliderlink_13:hover, .portal_sliderlink_14:hover, .portal_sliderlink_15:hover, .portal_sliderlink_16:hover, .portal_sliderlink_17:hover, .portal_sliderlink_18:hover, .portal_sliderlink_19:hover, .portal_sliderlink_20:hover, .portal_sliderlink_21:hover, .portal_sliderlink_22:hover, .portal_sliderlink_23:hover, .portal_sliderlink_24:hover, .portal_sliderlink_25:hover, .portal_sliderlink_26:hover, .portal_sliderlink_27:hover, .portal_sliderlink_28:hover, .portal_sliderlink_29:hover, .portal_sliderlink_30:hover {opacity:0.5}
+ 
+.ui-tabs {position:relative; padding:.2em; zoom:1}
+.ui-tabs .ui-tabs-nav {margin:0; padding:.2em .2em 0;}
+.ui-tabs .ui-tabs-nav li {list-style:none; float:left; position:relative; top:1px; margin:0 .2em 1px 0; border-bottom:0 !important; padding:0; white-space:nowrap}
+.ui-tabs .ui-tabs-nav li a {float:left; padding:.5em 1em; text-decoration:none}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected {margin-bottom:0; padding-bottom:1px}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a {cursor:text}
+.ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a {cursor:pointer} 
+.ui-tabs .ui-tabs-panel {display:block; border-width:0; padding:0; background: none}
+.ui-tabs .ui-tabs-hide {display:none !important;}
+.ui-tabs-hide {display:none !important;}
