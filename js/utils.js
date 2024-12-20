@@ -542,6 +542,8 @@ const anzhiyu = {
         result = parseInt(hourCount) + " " + GLOBAL_CONFIG.date_suffix.hour;
       } else if (minuteCount >= 1) {
         result = parseInt(minuteCount) + " " + GLOBAL_CONFIG.date_suffix.min;
+      } else if (dateDiff < 0){
+        result = GLOBAL_CONFIG.date_suffix.future;
       } else {
         result = GLOBAL_CONFIG.date_suffix.just;
       }
@@ -560,6 +562,8 @@ const anzhiyu = {
         result = parseInt(hourCount) + " " + GLOBAL_CONFIG.date_suffix.hour;
       } else if (minuteCount >= 1) {
         result = parseInt(minuteCount) + " " + GLOBAL_CONFIG.date_suffix.min;
+      } else if (dateDiff < 0){
+        result = GLOBAL_CONFIG.date_suffix.future;
       } else {
         result = GLOBAL_CONFIG.date_suffix.just;
       }
