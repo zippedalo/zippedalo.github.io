@@ -4,6 +4,81 @@
   
     
     <entry>
+      <title>[C/C++] 数组与容器怎么正确传入函数 </title>
+      <link href="/posts/1b23d127.html"/>
+      <url>/posts/1b23d127.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 语言特性速查 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C/C++ </tag>
+            
+            <tag> 数组 </tag>
+            
+            <tag> STL 容器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[C/C++] 数组未初始化的默认值</title>
+      <link href="/posts/107c5971.html"/>
+      <url>/posts/107c5971.html</url>
+      
+        <content type="html"><![CDATA[<p>C&#x2F;C++ 的数组在声明时一般会要求初始化值以防止出现编译错误以及理解误差。但是在部分情况下即便没有初始化编译器也会设定默认值。以积累经验为目的，就此状况做出以下简单归类：</p><h1 id="声明全局数组时"><a href="#声明全局数组时" class="headerlink" title="声明全局数组时"></a>声明<strong>全局数组</strong>时</h1><h2 id="未初始化情况下，默认值均为0"><a href="#未初始化情况下，默认值均为0" class="headerlink" title="未初始化情况下，默认值均为0"></a>未初始化情况下，默认值均为0</h2><p>在主函数外声明一个<code>int</code>数组，并打印其结果：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> arr[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; arr[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>得到的输出结果为：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></table></figure><p>那倘若是<code>char</code>或<code>string</code>类型的数组呢？</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> arr[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; arr[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>得到的输出结果为空：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//无输出</span><br></pre></td></tr></table></figure><h1 id="声明局部数组时"><a href="#声明局部数组时" class="headerlink" title="声明局部数组时"></a>声明<strong>局部数组</strong>时</h1><h2 id="未初始化情况下，默认值不确定"><a href="#未初始化情况下，默认值不确定" class="headerlink" title="未初始化情况下，默认值不确定"></a>未初始化情况下，默认值不确定</h2><p>在主函数内定义一个<code>int</code>数组，但不进行初始化操作：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> arr[<span class="number">10</span>];</span><br><span class="line">    cout &lt;&lt; arr[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>得到的结果是随机的：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2009069728   //第一次</span><br><span class="line">-1384122016  //第二次</span><br><span class="line">1688206672   //第三次</span><br></pre></td></tr></table></figure><p>在某些编译器环境中，这么做还会导致报错：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Warning] &#x27;a[0]&#x27; is used uninitialized in this function [-Wuninitialized]</span><br></pre></td></tr></table></figure><h2 id="初始化部分数据情况下，剩余部分默认值为0"><a href="#初始化部分数据情况下，剩余部分默认值为0" class="headerlink" title="初始化部分数据情况下，剩余部分默认值为0"></a>初始化部分数据情况下，剩余部分默认值为0</h2><p>在主函数内定义一个<code>int</code>数组，并进行部分初始化操作：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> arr[<span class="number">10</span>] = &#123;<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d&quot;</span>, arr[<span class="number">0</span>], arr[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>得到的结果为：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 0</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 语言特性速查 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C/C++ </tag>
+            
+            <tag> 数组 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>我与《大理寺日志》，与 Halo</title>
+      <link href="/posts/e8ec6fce.html"/>
+      <url>/posts/e8ec6fce.html</url>
+      
+        <content type="html"><![CDATA[<p>上次更新应该是差不多半年前了吧。最近比较忙所以没时间更新哈哈，不过是的，我现在回来小小的更新一下。</p><p>这篇文章讲的是我和《大理寺日志》的缘分，以及对 Halo 本身的一些构想，往上寄托了我的哪些想法。</p><p>由于已经近半年没更新了，内容大概会和先前的观点有出入。这是正常的，常想常新嘛。</p><p>那先说说和大理寺的事吧。</p><p>第一次接触到大理寺的时候是2024年。那年，也是站长要面对高考的时候。</p><p>经历过高考的都知道，考前最后的那段时间是最为煎熬的。因承受不住压力放弃而导致最终结果不尽人意的考生数不胜数，而不幸的是我就属于这一帮人。长久以来的疲倦和不见长进的成绩给了我很大的压力。我不知道怎么才能更进一步了。于是我懈怠了，我把我的业余时间留给了娱乐而非进一步的学习。</p><p>我觉得最后的结果大概也就这样了吧。</p><p>但是我很幸运，在这段时间里，我遇到了大理寺。</p><p>具体的感受现在已经有点遗忘了，然而那段情绪的轮廓依然留存在我的记忆里。我感觉过往的年月里从未见过这样令我感到深刻的故事。</p><p>我并不是漫画的狂热热爱者，我生平看过的漫画书不超过两位数（当然我指的是单个ip），所以大概我的评价有所偏颇和落后吧。但我确实真切的感受到这篇故事与先前我所见过的动画、漫画都有所区别。我可以说我看过的绝大多数流行作品，其中的设定都是空洞肤浅的，但其剧情被热血、反抗的基调覆盖，最后反而被多数人所追捧。当然作为娱乐作品，能够被人认可和接受必然有其道理。但要说实话，长久以来我虽然也喜欢过很多作品，但我终究没见过一部能让我念念不忘的作品，直至《大理寺日志》。</p><p>以往，我看流行作品，我感觉每个角色以及背景设定之间都是一块色彩各异的玻璃，而他们之间却选择用胶带强硬地进行链接。折射的光色彩绚烂，让人着迷。但仔细一看便没有章法可言。你很难从中推断出故事可能的发展走向，但光彩的表象又会吸引你看下去。从某些角度来看，这的确是用画面进行表现的优势之一：很多人实际上很容易被一些夸张化的氛围、光影，亦或是极端化的角色塑造所轻易吸引。作品制作的经费是有限的，因而能否创造目标观众十分重要，所以这么做无可厚非。但不可否认的是在剧情上舍本逐末，又想要纯粹（指的是乏合理性，充满幻想美好色彩的故事，比如猫的报恩）又想要深度（指的是通过故事达成隐喻、讽刺、反思的故事。这里本来想举千与千寻的例子，但不可否认其中也巧妙地包含了一些温馨舒适的情节，带有一些幻想色彩，所以其中的“深度”部分大家能理解就好），但诡异的叙事节奏破坏了这种和谐，最后的感觉就是高不成低不就，过快让人难以梳理逻辑，过慢就莫名其妙的结束了。这种问题，我认为在当今绝大多数的漫画都存在，无论是国漫还是其他国家的。</p><p>（这段有点写嗨了哈哈，不好意思。没有捧一踩一的意思，喜欢什么样的作品是大家的权利。以上仅代表个人观点，与具体作品无关）</p><p>而当我第一次读完大理寺日志的时候，我有了不一样的感觉。</p><p>要怎么去形容那一种感觉呢。</p><p>说实话，很难全面地、系统地去表述这种感觉。我想我只能凭借零碎的言语去阐述了。但如果要用一个词去概述，我觉得应该叫作，恍惚。</p><p>具体的分析与感受，受篇幅限制恕我说不了很多。但就主角两个人而言，我从中感受到了不同阶级之间的冲突与理解，封建帝制导致的局限与束缚，责任之间的变化。从主仆关系到互相帮助，最后到后面升华的接近朋友的关系，让我有很多感谢。就像是在绝望中，两个人互相为对方提起明灯，指引前进的道路，哪怕黎明不知在何方。</p><p>在此之前，作为理科生，我从未对政治和历史之类的事表现过兴趣。但这篇漫画让我对先前只在义务教育里浅浅了解过的朝代产生了不一样的看法。当然这篇漫画属于历史架空，必然有偏重的部分。但这不妨碍我已经产生了一些与众不同的看法。</p><p>在经过一些反复的思考和重构后，我感到醍醐灌顶。</p><p>自高二以来，已经很久都没有出现过这种求索、求知的新奇感。这种感觉让我在高考最后的冲刺阶段重拾了一些激情。</p><p>于是当我随后认识到作者已经停更一年多后，我感到有些可惜和惆怅。</p><p>但我很快就认识到目前自己有更重要的事，可能影响自己人生的事。于是在最后的一个月，我全心全意投入到复习当中，最终参加了高考。</p><p>当然，并不是所有故事都有好的结局。那年高考很难（至少我这么觉得吧）。很遗憾，我没能考到理想的成绩。</p><p>但我并不觉得十分的遗憾。我认为我在那段时间里构筑了自己的人生观。我想过了以后想干的事，想成为的人。我应该怎么看待这个社会，我应该怎么去对待别人，应该怎么去克服可能的困难。那件事已经过去了，而我选择向前看。</p><p>所以，是的，我很感谢这部作品给我这样的启发，也很感谢 RC 老师画了这一部作品（虽然在 CPGZ07 上还是没鼓起勇气去搭话 :( ）。</p><p>于是作为粉丝，我想着为这个社区做点什么。</p><p>我想写一篇同人文。</p><p>那么现在，我准备来聊聊 Halo。</p><p>Halo 最初是我在 2023 年的构想（当时还不叫这个名字）。当然大部分设定由于过于弱智和中二现在已经难以说出口了，但有关其的一些设定，放到现在依然有可取之处。</p><p>（以下部分是随笔，仅以记录想法为目的）</p><p>Halo 是怎么样一个人呢</p><p>Halo 应当具有和李饼相似的特点：有责任心、正直。这些优点是反映 Halo 身份的一个表征。但与此同时，Halo 与李饼在性格方面会呈现一定的差异性。李饼属于是嫉恶如仇的派别，他的反应会比较强烈；Halo 属于是非观念不够强烈的类型（这并不是指三观不正，而是由于接受的教育与价值观差异，Halo 难以对“善”、“恶”的对象产生足够的爱意与恨意，这种略带畸形的感情观便与李饼的刚正不阿有所区别）。但与此同时，Halo 比李饼更加稳健、成熟，思想的广度也更加深远，相比之下的李饼心灵更加脆弱。真要说的话，Halo 在为人方面会比较像卢卿，但处事方面偏向陈拾，当然这要看后续的补充而定。</p><p>这篇同人文本质上是收束性的，即对原漫未能补全的设定部分进行一些大胆的设想和补充，因而我不打算在这其中对剧情产生实质性的推动而是留出思考空间。Halo 在其中会作为一个媒介来排解李饼的心结，因为可以预料的是在那个时代，受时代和阶级约束，李饼是很难直接觉察到自己的不足和错误的。而相应的李饼的一些作为前大理寺官员的一些正直特征也会反向地重塑 Halo 的人生观，将其引向坚韧、刚正的发展方向。</p><p>不过在塑造方面有一些方面有徘徊空间。比如李饼的脆弱方面，我不想将其描述地过于弱势，但凸显其脆弱面又是情节所必须的。因而双方能够给对方互相带来什么，表现形式需要进行斟酌。</p><p>那就先这样吧。</p><p>先前本已编辑了一篇逻辑链文章来表达一些我对其设定的一些具体想法，但时隔半年再回过头来看貌似有些好高骛远了，描述和辞藻都显得很空洞。所以需要推倒重来，至于下一次是什么时候，那得看时间安排了。</p><p>更多的设定会在下一篇随笔里说说。</p><p>以上。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 常想常新 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>从“红石”说起</title>
       <link href="/posts/71211513.html"/>
       <url>/posts/71211513.html</url>
@@ -17,14 +92,6 @@
           
       </categories>
       
-      
-        <tags>
-            
-            <tag> 长期更新 </tag>
-            
-            <tag> 思路 </tag>
-            
-        </tags>
       
     </entry>
     
@@ -44,14 +111,6 @@
           
       </categories>
       
-      
-        <tags>
-            
-            <tag> 长期更新 </tag>
-            
-            <tag> 思路 </tag>
-            
-        </tags>
       
     </entry>
     
